@@ -1,0 +1,14 @@
+{
+    "name": "apple",
+    "business_name": "apple inc",
+    "contact": "94593459343",
+    "address": "mumbai",
+    "items": [
+        "Rice",
+        "Sugar",
+        "lotte chocopie",
+        "icecream"
+    ],
+    "registration_date": "2025-04-17 08:36:49",
+    "status": "active"
+}

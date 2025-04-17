@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Integration - Sethji.ai</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container-fluid p-0 main-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"><strong>Sethji</strong>.ai</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.index') }}">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('main.telegram_integration') }}">Telegram Integration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.ultravox_integration') }}">UltraVox Integration</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="integration-container">
+            <div class="integration-header">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2><i class="fa-brands fa-telegram"></i> Telegram Integration</h2>
+                        <p>Connect your store with customers and suppliers through Telegram bots</p>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary">
+                            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="integration-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card integration-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Customer Bot Integration</h5>
+                                <p class="card-text">Configure your customer-facing Telegram bot (customermaster)</p>
+                                
+                                <div class="mb-3">
+                                    <label for="customerBotToken" class="form-label">Bot Token</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="customerBotToken" placeholder="Enter your bot token">
+                                        <button class="btn btn-primary" type="button">Verify</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Bot Status</label>
+                                    <div class="bot-status not-connected">
+                                        <i class="fa-solid fa-circle-xmark"></i> Not Connected
+                                    </div>
+                                </div>
+                                
+                                <div class="bot-actions">
+                                    <button class="btn btn-primary">Connect Bot</button>
+                                    <button class="btn btn-outline-secondary" disabled>Test Connection</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card integration-card">
+                            <div class="card-body">
+                                <h5 class="card-title">Supplier Bot Integration</h5>
+                                <p class="card-text">Configure your supplier-facing Telegram bot (supplymaster)</p>
+                                
+                                <div class="mb-3">
+                                    <label for="supplierBotToken" class="form-label">Bot Token</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="supplierBotToken" placeholder="Enter your bot token">
+                                        <button class="btn btn-primary" type="button">Verify</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Bot Status</label>
+                                    <div class="bot-status not-connected">
+                                        <i class="fa-solid fa-circle-xmark"></i> Not Connected
+                                    </div>
+                                </div>
+                                
+                                <div class="bot-actions">
+                                    <button class="btn btn-primary">Connect Bot</button>
+                                    <button class="btn btn-outline-secondary" disabled>Test Connection</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="setup-guide mt-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">How to Setup Your Telegram Bots</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="setup-steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h6>Create a Telegram Bot</h6>
+                                        <p>Open Telegram and search for <strong>@BotFather</strong>. Start a chat and send the command <code>/newbot</code>.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h6>Name Your Bot</h6>
+                                        <p>Give your bot a name (e.g., "CustomerMaster" or "SupplyMaster") and a username that ends with "bot".</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h6>Copy the API Token</h6>
+                                        <p>BotFather will provide an API token. Copy this token and paste it in the appropriate field above.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h6>Connect the Bot</h6>
+                                        <p>Click the "Connect Bot" button to integrate your Telegram bot with Sethji.ai.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

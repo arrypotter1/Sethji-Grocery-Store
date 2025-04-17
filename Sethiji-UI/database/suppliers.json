@@ -1,0 +1,52 @@
+{
+  "suppliers": [
+    {
+      "id": "1",
+      "name": "Sweet Treats Distributors",
+      "phone": "7654321098",
+      "products": [
+        "Chocolates",
+        "Candies",
+        "Confectionery"
+      ],
+      "address": "789 Sweet Lane, Chennai",
+      "payment_terms": "net 30"
+    },
+    {
+      "id": "2",
+      "name": "Essential Goods Supply",
+      "phone": "6543210987",
+      "products": [
+        "Salt",
+        "Sugar",
+        "Spices"
+      ],
+      "address": "101 Market Road, Kolkata",
+      "payment_terms": "net 15"
+    },
+    {
+      "id": "3",
+      "name": "Farm Fresh Foods",
+      "phone": "5432109876",
+      "products": [
+        "Rice",
+        "Dal",
+        "Flour"
+      ],
+      "address": "202 Grain Street, Bangalore",
+      "payment_terms": "net 30"
+    },
+    {
+      "id": "4",
+      "name": "Dairy Delights",
+      "phone": "4321098765",
+      "products": [
+        "Milk",
+        "Butter",
+        "Cheese"
+      ],
+      "address": "303 Dairy Road, Hyderabad",
+      "payment_terms": "net 7"
+    }
+  ]
+}

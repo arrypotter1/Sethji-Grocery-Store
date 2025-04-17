@@ -1,0 +1,37 @@
+[
+    {
+        "timestamp": "2025-04-17 08:35:46",
+        "user_id": 5094418997,
+        "user_name": "A",
+        "message": "hi",
+        "is_bot": false
+    },
+    {
+        "timestamp": "2025-04-17 08:35:52",
+        "user_id": null,
+        "user_name": "Bot",
+        "message": "Namaste! Welcome to Sethji Kirana Store! So you'd like to register as a supplier, bahut achhi baat hai! Let's get started. To register, I'll need some information from you. Please tell me: * What is your company's name? * What products do you supply? * What is your contact number? Once I have this information, I can create a supplier profile for you. Dhanyavad!",
+        "is_bot": true
+    },
+    {
+        "timestamp": "2025-04-17 08:35:55",
+        "user_id": null,
+        "user_name": "Bot",
+        "message": "Please tell me your full name:",
+        "is_bot": true
+    },
+    {
+        "timestamp": "2025-04-17 08:37:03",
+        "user_id": 5094418997,
+        "user_name": "A",
+        "message": "inventory",
+        "is_bot": false
+    },
+    {
+        "timestamp": "2025-04-17 08:37:09",
+        "user_id": null,
+        "user_name": "Bot",
+        "message": "Namaste! Sethji Kirana Store mein aapka swagat hai! Current inventory status is: * Rice: 100 units * Sugar: 50 units * Lentils: 75 units * Wheat Flour: 60 units * Cooking Oil: 40 units Aur kuch main aapki seva kar sakta hoon? (Anything else I can help you with?)",
+        "is_bot": true
+    }
+]

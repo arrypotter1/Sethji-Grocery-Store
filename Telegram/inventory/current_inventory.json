@@ -1,0 +1,32 @@
+[
+    {
+        "product_name": "Rice",
+        "quantity": 81,
+        "alert_threshold": 20,
+        "unit": "kg"
+    },
+    {
+        "product_name": "Sugar",
+        "quantity": 76,
+        "alert_threshold": 15,
+        "unit": "kg"
+    },
+    {
+        "product_name": "Lentils",
+        "quantity": 27,
+        "alert_threshold": 25,
+        "unit": "kg"
+    },
+    {
+        "product_name": "Wheat Flour",
+        "quantity": 9,
+        "alert_threshold": 20,
+        "unit": "kg"
+    },
+    {
+        "product_name": "Cooking Oil",
+        "quantity": 14,
+        "alert_threshold": 10,
+        "unit": "L"
+    }
+]

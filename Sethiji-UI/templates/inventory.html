@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management - Sethji.ai</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/inventory_enhanced.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('main.index') }}"><span class="logo-text">Sethji</span><span class="logo-dot">.ai</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('main.index') }}"><i class="fas fa-home"></i> Dashboard</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="integrationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-plug"></i> Integrations
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="integrationsDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('main.telegram_integration') }}"><i class="fab fa-telegram"></i> Telegram</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('main.ultravox_integration') }}"><i class="fas fa-microphone"></i> UltraVox Voice</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('main.inventory') }}"><i class="fas fa-boxes"></i> Inventory</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="inventory-container">
+            <div class="inventory-stacked-layout">
+                <!-- Metrics Section - Quick Stats -->
+                <div class="inventory-section metrics-section">
+                    <div class="inventory-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon bg-primary">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Total Items</h4>
+                                <p id="totalItems">5</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon bg-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Low Stock</h4>
+                                <p id="lowStockCount">1</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon bg-success">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Inventory Value</h4>
+                                <p id="inventoryValue">₹6,200</p>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <div class="stat-icon bg-info">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>Turnover Rate</h4>
+                                <p id="turnoverRate">4.2x</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Section - Update Options -->
+                <div class="inventory-section top-section">
+                    <h3><i class="fas fa-edit"></i> Update Inventory</h3>
+                    
+                    <div class="update-options-row">
+                        <div class="update-option">
+                            <h4><i class="fas fa-qrcode"></i> GTIN/EAN/Bar Code</h4>
+                            <p>Scan or upload barcode images for instant item recognition.</p>
+                            
+                            <div class="upload-area" id="barcodeUploadArea">
+                                <i class="fas fa-camera"></i>
+                                <p>Drag & drop image or click to upload</p>
+                                <input type="file" id="barcodeFileInput" accept="image/*" style="display: none;">
+                            </div>
+                            
+                            <div class="barcode-preview" id="barcodePreview" style="display: none;">
+                                <img id="previewImage" src="" alt="Barcode preview">
+                                <button class="btn btn-sm btn-danger" id="removeBarcodeBtn"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="update-option">
+                            <h4><i class="fas fa-file-excel"></i> Purchase File</h4>
+                            <p>Upload Excel file with product information.</p>
+                            
+                            <div class="upload-area" id="excelUploadArea">
+                                <i class="fas fa-file-excel"></i>
+                                <p>Drag & drop Excel file or click to upload</p>
+                                <input type="file" id="excelFileInput" accept=".xlsx,.xls,.csv" style="display: none;">
+                            </div>
+                            
+                            <div class="file-info" id="fileInfo" style="display: none;">
+                                <i class="fas fa-file-excel"></i>
+                                <span id="fileName">inventory.xlsx</span>
+                                <button class="btn btn-sm btn-danger" id="removeFileBtn"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="actions-simulation">
+                            <button class="btn btn-primary process-btn" id="processInventoryBtn">
+                                <i class="fas fa-cogs"></i> Process
+                            </button>
+                            
+                            <div class="simulation-tools">
+                                <h4><i class="fas fa-chart-line"></i> Run Simulations</h4>
+                                <div class="simulation-options">
+                                    <select class="form-select" id="simulationSelect">
+                                        <option value="seasonal">Seasonal Demand Fluctuation</option>
+                                        <option value="stockout">Stockout Risk Analysis</option>
+                                        <option value="pricing">Pricing Optimization</option>
+                                        <option value="reordering">Reordering Analysis</option>
+                                        <option value="expiry">Expiry Tracking</option>
+                                        <option value="sales">Sales Analytics</option>
+                                        <option value="restructure">Inventory Restructuring</option>
+                                    </select>
+                                    <button class="btn btn-info" id="analyzeBtn">
+                                        <i class="fas fa-play"></i> Analyze
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Section - Inventory Table -->
+                <div class="inventory-section bottom-section">
+                    <h3><i class="fas fa-table"></i> Current Inventory Status</h3>
+                    
+                    <div class="inventory-filters">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control" id="inventorySearch" placeholder="Search inventory...">
+                        </div>
+                        
+                        <div class="filter-buttons">
+                            <button class="btn btn-outline-danger btn-sm" id="lowStockBtn">
+                                <i class="fas fa-exclamation-triangle"></i> Low Stock
+                            </button>
+                            <button class="btn btn-outline-success btn-sm" id="inStockBtn">
+                                <i class="fas fa-check-circle"></i> In Stock
+                            </button>
+                            <button class="btn btn-outline-primary btn-sm" id="allItemsBtn">
+                                <i class="fas fa-boxes"></i> All Items
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="inventory-table-container">
+                        <table class="table table-hover inventory-table" id="inventoryTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Product Name</th>
+                                    <th>SKU</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                    <th>Price</th>
+                                    <th>Cost</th>
+                                    <th>Margin</th>
+                                    <th>Reorder Level</th>
+                                    <th>Last Updated</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventoryTableBody">
+                                <!-- Table content will be filled dynamically with JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/inventory.js') }}"></script>
+</body>
+</html>

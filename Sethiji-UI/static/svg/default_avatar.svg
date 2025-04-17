@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="white" stroke="#4F46E5" stroke-width="2" />
+  
+  <!-- Face -->
+  <circle cx="100" cy="93" r="55" fill="#f0f0f0" />
+  
+  <!-- Eyes -->
+  <ellipse cx="80" cy="85" rx="9" ry="10" fill="#333" />
+  <ellipse cx="120" cy="85" rx="9" ry="10" fill="#333" />
+  
+  <!-- Eyebrows -->
+  <path d="M70 72 Q80 65 90 72" stroke="#333" stroke-width="3" fill="none" />
+  <path d="M110 72 Q120 65 130 72" stroke="#333" stroke-width="3" fill="none" />
+  
+  <!-- Smile -->
+  <path d="M75 110 Q100 130 125 110" stroke="#333" stroke-width="3" fill="none" />
+  
+  <!-- Turban -->
+  <path d="M45 75 Q60 30 100 30 Q140 30 155 75" fill="#4F46E5" />
+  <path d="M45 75 Q60 40 100 35 Q140 40 155 75" fill="none" stroke="#3730A3" stroke-width="2" />
+  
+  <!-- Turban Decoration -->
+  <circle cx="100" cy="45" r="10" fill="#F472B6" />
+  <path d="M95 45 L105 45 M100 40 L100 50" stroke="white" stroke-width="2" />
+  
+  <!-- Beard -->
+  <path d="M85 120 Q100 140 115 120 L115 145 Q100 155 85 145 Z" fill="#333" />
+  
+  <!-- Mustache -->
+  <path d="M85 105 Q100 115 115 105" stroke="#333" stroke-width="4" fill="none" />
+  
+  <!-- Name Tag -->
+  <rect x="50" y="155" width="100" height="25" rx="5" fill="#4F46E5" />
+  <text x="100" y="173" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Sethji.ai</text>
+</svg>

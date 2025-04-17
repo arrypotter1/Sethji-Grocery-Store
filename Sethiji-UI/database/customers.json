@@ -1,0 +1,20 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "Rahul Sharma",
+      "phone": "9876543210",
+      "payment_method": "cash",
+      "address": "123 Main Street, Mumbai",
+      "last_order_date": "2025-04-04T19:08:15.692364"
+    },
+    {
+      "id": "2",
+      "name": "Priya Patel",
+      "phone": "8765432109",
+      "payment_method": "upi",
+      "address": "456 Park Avenue, Delhi",
+      "last_order_date": "2025-04-04T19:08:15.692369"
+    }
+  ]
+}

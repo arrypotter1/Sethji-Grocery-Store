@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "1",
+      "name": "Lotte Chocopie",
+      "sku": "LC001",
+      "category": "Confectionery",
+      "quantity": 24,
+      "price": 40.0,
+      "cost_price": 32.0,
+      "supplier_id": "1",
+      "reorder_level": 10,
+      "last_updated": "2025-04-04T19:08:15.691938"
+    },
+    {
+      "id": "2",
+      "name": "Tata Salt",
+      "sku": "TS001",
+      "category": "Essentials",
+      "quantity": 50,
+      "price": 20.0,
+      "cost_price": 16.0,
+      "supplier_id": "2",
+      "reorder_level": 15,
+      "last_updated": "2025-04-04T19:08:15.691948"
+    },
+    {
+      "id": "3",
+      "name": "Basmati Rice (1kg)",
+      "sku": "BR001",
+      "category": "Staples",
+      "quantity": 30,
+      "price": 80.0,
+      "cost_price": 65.0,
+      "supplier_id": "3",
+      "reorder_level": 10,
+      "last_updated": "2025-04-04T19:08:15.691951"
+    },
+    {
+      "id": "4",
+      "name": "Toor Dal (500g)",
+      "sku": "TD001",
+      "category": "Staples",
+      "quantity": 35,
+      "price": 60.0,
+      "cost_price": 48.0,
+      "supplier_id": "3",
+      "reorder_level": 12,
+      "last_updated": "2025-04-04T19:08:15.691954"
+    },
+    {
+      "id": "5",
+      "name": "Amul Butter (100g)",
+      "sku": "AB001",
+      "category": "Dairy",
+      "quantity": 20,
+      "price": 50.0,
+      "cost_price": 43.0,
+      "supplier_id": "4",
+      "reorder_level": 8,
+      "last_updated": "2025-04-04T19:08:15.691956"
+    }
+  ]
+}
