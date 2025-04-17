@@ -9,8 +9,8 @@ Sethji.ai is an **AI-driven inventory and demand forecasting solution** 🤖 des
 
 ## Delighting Retailers Across the Globe 🌍❤️
 
-![Image A](branding/1.jpeg)
-![Image B](branding/2.png)
+![Image A](Sethiji-UI/branding/1.jpeg)
+![Image B](Sethiji-UI/branding/2.png)
 
 ---
 
@@ -29,7 +29,7 @@ Manual stock reconciliation 📝 is time-consuming and error-prone ❗, and the 
 
 ## ⚙️ Architecture Overview
 Sethji.ai is a Python-based, modular AI system architected to solve granular retail inventory challenges using a collection of context-aware agents, domain-enforced business rules, and multi-modal interfaces. The system targets small retailers and distributed franchise environments, where access to enterprise-level ERP systems is limited, yet precision in stock handling, demand forecasting, and perishables tracking is critical. The backend stack is centered on Flask for RESTful routing and service orchestration, combined with SQLAlchemy as the ORM layer over a SQLite store augmented with Change Data Capture (CDC) metadata for auditability. Business rules such as reorder thresholds, SKU shelf-life, and expiry window enforcement are codified using structured JSON logic, interpreted at runtime by an internal rules engine.
-![Image A](branding/sethji-architecture.png)
+![Image A](Sethiji-UI/branding/sethji-architecture.png)
 
 Inventory-related agents are built using lightweight ML pipelines in Scikit-learn, with support for ARIMA, RandomForest, and rolling mean ensemble models for SKU-level demand forecasting. These agents are invoked asynchronously through a context protocol layer that injects current sales patterns, seasonal tags, and shop-type persona metadata before prompt execution. The system is LLM-compatible, integrating with Google’s Gemini API for structured reasoning and summarization tasks, while voice interfaces are powered via Ultravox, a multilingual speech-to-text and text-to-speech wrapper that supports regional Indian languages. This enables both voice input and voice output for actions such as inventory checks, reorder triggers, and expiry alerts, making the platform accessible for semi-literate or low-tech users.
 
